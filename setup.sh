@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+cd ..
+
 # 1. Ensure Python 3.8+
 if ! command -v python3 &>/dev/null; then
   echo "Error: python3 not found. Please install Python 3.8 or newer." >&2

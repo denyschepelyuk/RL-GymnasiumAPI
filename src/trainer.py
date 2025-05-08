@@ -28,6 +28,7 @@ def run_experiment(exp: dict, log_dir: str = 'logs'):
     generations = exp['generations']
     episodes = exp['episodes_per_eval']
 
+    log_dir = os.path.join(log_dir, env_id)
     os.makedirs(log_dir, exist_ok=True)
 
     for seed in seeds:
@@ -52,7 +53,7 @@ def run_experiment(exp: dict, log_dir: str = 'logs'):
         population = ga.init_population()
 
         # Prepare log file
-        log_path = os.path.join(log_dir, f"{env_id}_seed{seed}.csv")
+        log_path = os.path.join(log_dir, f"seed{seed}.csv")
         with open(log_path, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
             writer.writerow(['seed', 'generation', 'best_fitness'])

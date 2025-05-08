@@ -179,3 +179,4 @@ cython_debug/
 # Project specific files
 
 logs/
+results/
