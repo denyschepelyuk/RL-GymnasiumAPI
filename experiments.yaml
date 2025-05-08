@@ -1,25 +1,40 @@
+# experiments.yaml
+
+# 1) Global defaults for all experiments
 default:
   ga_params:
-    pop_size: 50
+    pop_size: 100
     crossover_rate: 0.9
     mutation_rate: 0.1
     mutation_sigma: 0.1
+    tournament_size: 3
+    elitism: true
+    elitism_frac: 0.05
   net_arch: [16,16]
+  seeds: [0,1,2,3,4]
   generations: 200
   episodes_per_eval: 5
 
+# 2) Per‐env overrides
 experiments:
   - env: CartPole-v1
-    # uses all defaults
+    ga_params:
+      pop_size: 80          # smaller population for faster convergence
+      mutation_rate: 0.05   # more conservative mutation
+    # net_arch, seeds, generations, episodes_per_eval all come from default
+    generations: 25
 
   - env: Acrobot-v1
-    ga_params:
-      pop_size: 80        # override just this
-      mutation_rate: 0.05
+    # Inherits everything from default
 
   - env: LunarLander-v2
     ga_params:
-      pop_size: 150
+      pop_size: 150         # need more diversity for this harder task
+      crossover_rate: 0.95
       mutation_rate: 0.3
-    net_arch: [32,32]
-    generations: 300
+      mutation_sigma: 0.2
+    net_arch: [32,32]       # larger network for complexity
+    generations: 300        # allow more generations
+    # episodes_per_eval stays at 5, seeds at [0,1,2,3,4]
+
+  # You can add new entries here with only the fields you want to tweak.
