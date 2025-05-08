@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-cd ..
 
 # 1. Ensure Python 3.8+
 if ! command -v python3 &>/dev/null; then
