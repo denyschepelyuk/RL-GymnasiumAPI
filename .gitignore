@@ -175,3 +175,7 @@ cython_debug/
 
 # JetBrains IDEs
 .idea/
+
+# Project specific files
+
+logs/
