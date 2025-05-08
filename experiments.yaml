@@ -27,7 +27,7 @@ experiments:
   - env: Acrobot-v1
     # Inherits everything from default
 
-  - env: LunarLander-v2
+  - env: LunarLander-v3
     ga_params:
       pop_size: 150         # need more diversity for this harder task
       crossover_rate: 0.95
